@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <meta name="author" content="Karan Bedi">
+        <title>My Project</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="script/shape.js"></script>
+    </head>
+    <body onload="initCanvas()">
+        <header>
+            <div class="container">
+                <div id="branding">
+                    <h1><span class="highlight">CC</span><span class="tech">Tech</span></h1>
+                </div>
+                <nav>
+                    <ul>
+                        <li class="current"><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <section id="showcase">
+            <div class="container">
+                <h1>Little Project</h1>
+                <p>Draws basic shapes on a HTML canvas of dimension 1000x500px.
+                </p>
+            </div>
+        </section>
+        <!-- <section id="newsletter">
+            <div class="container">
+                <h1>Subscribe pls</h1>
+                <form>
+                    <input type="email" placeholder="Enter Email..">
+                    <button type="submit" class="button_1">Subscribe</button>
+                </form>
+            </div>
+        </section> -->
+        <section id="boxes">
+            <div class="container">
+                <canvas id="myCanvas" width="1000px" height="500px"></canvas>
+                <form name="myForm" class="form-1" action="#" onsubmit="return draw()" method="post">
+                    <div>
+                        <label id="shape-1" for="shape">Shape</label><br>
+                        <select id="shape" name="shape">
+                            <option value="Line" selected>Line</option>
+                            <option value="Circle">Circle</option>
+                            <option value="Rectangle">Rectangle</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="xcor">Start X-co-ordinate</label>
+                        <input type="text" id="xcor" name="xcor">
+                    </div>
+                    <div>
+                        <label for="ycor">Start Y-co-ordinate</label>
+                        <input type="text" id="ycor" name="ycor">
+                    </div>
+                    <div>
+                        <label for="endxcor">End X-co-ordinate</label>
+                        <input type="text" id="endxcor" name="endxcor">
+                    </div>
+                    <div>
+                        <label for="endycor">End Y-co-ordinate</label>
+                        <input type="text" id="endycor" name="endycor">
+                    </div>
+                    <div>
+                        <label for="radius">Circle Radius</label>
+                        <input type="text" id="radius" name="radius">
+                    </div>
+                    <div>
+                        <label for="width">Rectangle Width</label>
+                        <input type="text" id="width" name="width">
+                    </div>
+                    <div>
+                        <label for="height">Rectangle Height</label>
+                        <input type="text" id="height" name="height">
+                    </div>
+                    <div>
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </section>
+        <footer>
+            <p>CCTECH &copy; 2018</p>
+        </footer>
+    </body>
+</html>
