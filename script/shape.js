@@ -1,22 +1,47 @@
+//Basic point object
 var point = {
     xcor: 0,
-    ycor: 0, 
-    endxcor: 0,
-    endycor: 0,
+    ycor: 0
 };
 
-var circle = {
-    xcor: 0,
-    ycor: 0,
-    radius: 0,
-}
+Object.seal(point);
 
-var rectangle = {
-    xcor: 0,
-    ycor: 0,
-    width: 0,
-    height: 0,
-}
+//Inherit point object
+var line = Object.create(point, {
+    endxcor: {
+        value: 0,
+        writable: true,
+        enumerable: true
+    },
+    endycor: {
+        value: 0,
+        writable: true,
+        enumerable: true
+    }
+});
+
+//Inherit point object + create radius property for a circle
+var circle = Object.create(point, {
+    radius: {
+        value: 0,
+        writable: true,
+        enumerable: true
+    }
+});
+
+//Inherit point object + create height/width property for a rectangle
+var rectangle = Object.create(point, {
+    width: {
+        value: 0,
+        writable: true,
+        enumerable: true
+    },
+    height: {
+        value: 0,
+        writable: true,
+        enumerable: true
+    }
+});
 
 function initCanvas() {
     c = document.getElementById('myCanvas');
@@ -28,12 +53,12 @@ function draw() {
     var shapeType = document.forms['myForm']['shape'].value;
     
     if(shapeType=="Line") {
-        var xcor = document.forms['myForm']['xcor'].value;
-        var ycor = document.forms['myForm']['ycor'].value;
-        var endxcor = document.forms['myForm']['endxcor'].value;
-        var endycor = document.forms['myForm']['endycor'].value;
-        ctx.moveTo(xcor,ycor);
-        ctx.lineTo(endxcor,endycor);
+        line.xcor = document.forms['myForm']['xcor'].value;
+        line.ycor = document.forms['myForm']['ycor'].value;
+        line.endxcor = document.forms['myForm']['endxcor'].value;
+        line.endycor = document.forms['myForm']['endycor'].value;
+        ctx.moveTo(line.xcor,line.ycor);
+        ctx.lineTo(line.endxcor,line.endycor);
         ctx.stroke();    
     }
     else if(shapeType=="Circle") {
